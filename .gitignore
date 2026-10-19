@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Production build
+dist/
+build/
+
+# Environment files & Secrets
+.env
+.env.local
+.env.*.local
+.dev.vars
+.dev.vars.*
+
+# Temporary / Scratch assets
+assets_temp/
+*.log
+
+# Editor & OS
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
