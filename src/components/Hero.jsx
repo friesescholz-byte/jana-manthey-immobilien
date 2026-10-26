@@ -93,22 +93,22 @@ export default function Hero({ onNavigate }) {
               Immobilie finden
             </button>
 
-            {/* Button 2: IMMOBILIE VERKAUFEN */}
+            {/* Button 2: BAUTRÄGER & NEUBAU */}
             <button
-              onClick={() => onNavigate('kontakt')}
+              onClick={() => onNavigate('bautraeger')}
               className="w-[260px] max-w-full h-[54px] flex items-center justify-center border-[1.5px] border-[#F1EFE9] text-[#F1EFE9] bg-black/25 hover:bg-[#F1EFE9] hover:text-slate-950 backdrop-blur-sm text-xs sm:text-[13px] font-medium tracking-[0.22em] uppercase transition-all duration-300 shadow-sm"
             >
-              Immobilie verkaufen
+              Bauträger & Neubau
             </button>
           </motion.div>
 
-          {/* Dezenter Bauträger & Neubau Link – zentriert & minimalistisch unter den Buttons */}
+          {/* Dezenter Immobilie verkaufen Link – zentriert & minimalistisch unter den Buttons */}
           <motion.div variants={itemVariants} className="mt-6 sm:mt-7 flex items-center justify-center">
             <button
-              onClick={() => onNavigate('bautraeger')}
+              onClick={() => onNavigate('kontakt')}
               className="inline-flex items-center gap-2 text-[11px] sm:text-xs tracking-[0.22em] uppercase font-normal text-[#F1EFE9]/80 hover:text-white transition-all duration-300 group py-1 border-b border-[#F1EFE9]/30 hover:border-[#F1EFE9]"
             >
-              <span>Bauträger & Neubau</span>
+              <span>Immobilie verkaufen</span>
               <ArrowRight className="w-3.5 h-3.5 text-[#C5A880] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
             </button>
           </motion.div>
