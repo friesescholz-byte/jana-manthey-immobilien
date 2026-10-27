@@ -39,20 +39,20 @@ export default function Hero({ onNavigate }) {
   return (
     <section ref={heroRef} className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-slate-950">
       
-      {/* Hintergrundbild mit sanftem Parallax-Scroll-Effekt: Jana Manthey auf der Treppe */}
+      {/* Hintergrundbild mit sanftem Parallax-Scroll-Effekt: Diagonaler Split (Links: Bauträger / Rechts: Jana im Wohnraum) */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <motion.div 
           style={{ y, scale }}
           className="w-full h-full relative"
         >
           <img
-            src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/Jana%20Manthey%20Immobilien/jana_hero_interior.webp"
-            alt="Jana Manthey Immobilien – Persönliche Beratung im modernen Wohnraum"
+            src="https://pub-b33108412309406a9a941ddc51e9a5b9.r2.dev/Jana%20Manthey%20Immobilien/jana_hero_split_diagonal.webp"
+            alt="Jana Manthey Immobilien – Bauträger- & Wohnimmobilienberatung"
             className="w-full h-full object-cover object-center"
           />
         </motion.div>
-        {/* Warmer Kontrast-Filter genau wie bei Canva */}
-        <div className="absolute inset-0 bg-slate-950/45 backdrop-brightness-[0.92]" />
+        {/* Warmer Kontrast-Filter für optimale Text- und Button-Lesbarkeit */}
+        <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-[0.93]" />
       </div>
 
       {/* Zentrierter Hero-Inhalt mit ruhiger Canva-Einfluganimation */}
@@ -66,51 +66,63 @@ export default function Hero({ onNavigate }) {
           
           {/* Pretitle / Kicker (Canva Style: THOMAS LARSON GROUP -> JANA MANTHEY IMMOBILIEN) */}
           <motion.div variants={itemVariants} className="mb-6 sm:mb-8">
-            <span className="text-[12px] sm:text-[13px] uppercase tracking-[0.3em] font-medium text-[#F1EFE9]/90 block">
+            <span className="text-[12px] sm:text-[13px] uppercase tracking-[0.3em] font-medium text-[#F1EFE9] block drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]">
               Jana Manthey Immobilien
             </span>
           </motion.div>
 
-          {/* Monumentale Überschrift in Sorts Mill Goudy */}
-          <motion.h1
-            variants={itemVariants}
-            className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-normal leading-[1.08] text-[#F1EFE9] tracking-tight mb-10 sm:mb-12 max-w-4xl"
-          >
-            Ich begleite Sie <br className="hidden sm:inline" />
-            bei Ihrem nächsten Schritt.
-          </motion.h1>
+          {/* Monumentale Überschrift in Sorts Mill Goudy mit dezentem Schatten/Abdunklung für perfekte Lesbarkeit */}
+          <div className="relative mb-12 sm:mb-16 max-w-4xl mx-auto">
+            {/* Sanfter, diffuser Schattenhintergrund genau hinter der Schrift */}
+            <div 
+              className="absolute -inset-x-8 sm:-inset-x-16 -inset-y-6 sm:-inset-y-10 bg-black/45 rounded-full blur-2xl sm:blur-3xl pointer-events-none -z-10" 
+              aria-hidden="true"
+            />
+            
+            <motion.h1
+              variants={itemVariants}
+              className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-[84px] font-normal leading-[1.08] text-[#F1EFE9] tracking-tight relative z-10 [text-shadow:_0_3px_24px_rgba(0,0,0,0.85),_0_1px_4px_rgba(0,0,0,0.95)]"
+            >
+              Ich begleite Sie <br className="hidden sm:inline" />
+              bei Ihrem nächsten Schritt.
+            </motion.h1>
+          </div>
 
-          {/* Die 2 zentrierten Canva Outline-Buttons – exakt gleichgroß */}
+          {/* Zugehörige Button-Platzierung auf den jeweiligen visuellen Hälften */}
           <motion.div
             variants={itemVariants}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 w-full"
+            className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-14 items-start"
           >
-            {/* Button 1: IMMOBILIE FINDEN */}
-            <button
-              onClick={() => onNavigate('angebote')}
-              className="w-[260px] max-w-full h-[54px] flex items-center justify-center border-[1.5px] border-[#F1EFE9] text-[#F1EFE9] bg-black/25 hover:bg-[#F1EFE9] hover:text-slate-950 backdrop-blur-sm text-xs sm:text-[13px] font-medium tracking-[0.22em] uppercase transition-all duration-300 shadow-sm"
-            >
-              Immobilie finden
-            </button>
+            {/* Linke Seite: Zugehörig zum Bauträger-Bereich */}
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => onNavigate('bautraeger')}
+                className="w-[260px] max-w-full h-[54px] flex items-center justify-center border-[1.5px] border-[#F1EFE9] text-[#F1EFE9] bg-black/30 hover:bg-[#F1EFE9] hover:text-slate-950 backdrop-blur-md text-xs sm:text-[13px] font-medium tracking-[0.22em] uppercase transition-all duration-300 shadow-md group"
+              >
+                <span>Bauträger & Neubau</span>
+              </button>
+            </div>
 
-            {/* Button 2: BAUTRÄGER & NEUBAU */}
-            <button
-              onClick={() => onNavigate('bautraeger')}
-              className="w-[260px] max-w-full h-[54px] flex items-center justify-center border-[1.5px] border-[#F1EFE9] text-[#F1EFE9] bg-black/25 hover:bg-[#F1EFE9] hover:text-slate-950 backdrop-blur-sm text-xs sm:text-[13px] font-medium tracking-[0.22em] uppercase transition-all duration-300 shadow-sm"
-            >
-              Bauträger & Neubau
-            </button>
-          </motion.div>
+            {/* Rechte Seite: Zugehörig zum aktuellen Wohnraum-Bild (Immobilie finden & darunter verkaufen) */}
+            <div className="flex flex-col items-center">
+              <button
+                onClick={() => onNavigate('angebote')}
+                className="w-[260px] max-w-full h-[54px] flex items-center justify-center border-[1.5px] border-[#F1EFE9] text-[#F1EFE9] bg-black/30 hover:bg-[#F1EFE9] hover:text-slate-950 backdrop-blur-md text-xs sm:text-[13px] font-medium tracking-[0.22em] uppercase transition-all duration-300 shadow-md group"
+              >
+                <span>Immobilie finden</span>
+              </button>
 
-          {/* Dezenter Immobilie verkaufen Link – zentriert & minimalistisch unter den Buttons */}
-          <motion.div variants={itemVariants} className="mt-6 sm:mt-7 flex items-center justify-center">
-            <button
-              onClick={() => onNavigate('kontakt')}
-              className="inline-flex items-center gap-2 text-[11px] sm:text-xs tracking-[0.22em] uppercase font-normal text-[#F1EFE9]/80 hover:text-white transition-all duration-300 group py-1 border-b border-[#F1EFE9]/30 hover:border-[#F1EFE9]"
-            >
-              <span>Immobilie verkaufen</span>
-              <ArrowRight className="w-3.5 h-3.5 text-[#C5A880] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
-            </button>
+              {/* Darunter: Dezenter Schriftzug mit Verkaufen */}
+              <div className="mt-4 flex items-center justify-center">
+                <button
+                  onClick={() => onNavigate('kontakt')}
+                  className="inline-flex items-center gap-2 text-[11px] sm:text-xs tracking-[0.22em] uppercase font-normal text-[#F1EFE9]/85 hover:text-white transition-all duration-300 group py-1 border-b border-[#F1EFE9]/30 hover:border-[#F1EFE9]"
+                >
+                  <span>Immobilie verkaufen</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#C5A880] transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                </button>
+              </div>
+            </div>
           </motion.div>
 
         </motion.div>
